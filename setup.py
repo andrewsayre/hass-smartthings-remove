@@ -10,7 +10,7 @@ with open(os.path.join("README.md"), 'r') as fh:
     long_description = fh.read()
 
 setup(name='hass_smartthings_remove',
-      version="1.0.0",
+      version="1.0.1",
       description='Utility that removes SmartApps created by the Home Assistant SmartThings integration.',
       long_description=long_description,
       long_description_content_type='text/markdown',
