@@ -1,0 +1,18 @@
+language: python
+matrix:
+  fast_finish: true
+  include:
+  - python: '3.5'
+    env: TOXENV=lint
+install: pip install -U tox coveralls
+script: tox
+deploy:
+  provider: pypi
+  user: andrewsayre
+  password:
+    secure: AocC/LQdgM2F8C+jKFhAS5RiDgmK3dk3WfAGhiRbBR3iBHlPER2x7x/c+Avn8lFfGWjUZ0EjJZ0YlXZM7q80/a0zNDHNNjGI2V4GbBMvFsJ2hSZ0gp6XuWleUx+xLxVX1KyWpCQhn92NyoYRUoYawWH+qxhl6P1U/1c/LfKvUqkOLReBcaFuAANpNe1jvyyRHzby/dLEUUPFo1CsOIx6hNVUE645cxz5dAY8fNfV/e0wveqEMr4zAPxj/5xPqd9fECw/8WbUuay1GSz0YWgRz67YEWZz1tRrJvWicx6U7RC3OJ4KoJyvY9kRjobhg82L36wy6OM2Hgw0QescW7O+Ndu0Yc4+F/dekbj6aafCqJjDKtFz4LCpO4dNFwIXRtbi/XnSzRIo3LRv/GOYEMqHTJF+FSdDOQYQsqmI8ueLwWYzV3x04nT0rX5ufWOVg0q3yrtdeN+gBjmiCefjFAZVCTn4Ehkxp7cHsmaEr29qPyQzzP/oZZGMH6Z/N25zk343ngZ7sg1Omwlufx3AS11gKE9Gq6XvyPUwe+uCfcBNh/3opzbZKveobWLpP+6Mi7h2wl9tK3C4DTELGow4h/k/UMNU8BvMXo0b2eZfYCrWy7YBM5K5ZOLuHVLXaCSCren0S9DijD0MW1o8uJXiDdAUJ6/M3kgT7fFF3+b1hyYhnFo=
+  distributions: sdist bdist_wheel
+  skip_existing: true
+  on:
+    tags: true
+    condition: "$TOXENV = lint"
