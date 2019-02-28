@@ -31,7 +31,8 @@ async def remove_apps(token: str):
             # Remove installed apps first
             for installed_app in installed_apps:
                 if installed_app.app_id == app.app_id:
-                    await api.delete_installed_app(installed_app.app_id)
+                    await api.delete_installed_app(
+                        installed_app.installed_app_id)
                     print("Removed installed app '{}' ({})".format(
                         installed_app.display_name,
                         installed_app.installed_app_id))
